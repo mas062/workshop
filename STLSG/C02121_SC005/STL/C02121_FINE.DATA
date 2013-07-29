@@ -1,0 +1,124 @@
+RUNSPEC
+--R_C02121_SC001_NTG
+FRONTSIM
+
+TITLE
+UPSCALING
+
+DIMENS
+-- 50 61 1 /
+80  240  80/
+
+METRIC
+
+OIL
+
+WATER
+
+NOGRAV
+
+START
+ 1 JAN 2010 /
+
+GRID
+
+GRIDFILE
+ 2 /
+
+INIT
+--r35_satnum.ecl
+--r35_specgrid.ecl
+
+INCLUDE
+'ug.grdecl'/
+INCLUDE
+'r35_actnum.ecl'/
+INCLUDE
+'r35_multx.ecl'/
+INCLUDE
+'r35_multy.ecl'/
+INCLUDE
+'r35_multz.ecl'/
+INCLUDE
+'r35_ntg.ecl'/
+INCLUDE
+'r35_permx.ecl'/
+INCLUDE
+'r35_permy.ecl'/
+INCLUDE
+'r35_permz.ecl'/
+INCLUDE
+'r35_poro.ecl'/
+
+PROPS
+
+PVDO
+     250        1        1  /
+
+
+PVTW
+     250        1        0        1  /
+
+
+RSCONSTT
+ 0 0 /
+
+DENSITY
+ 1000 1000 1 /
+
+SOF2
+     0.0        0 
+     0.2      0.2        
+     0.4      0.4        
+     0.6      0.6 
+     0.8      0.8        
+     1.0        1  /
+
+SWFN
+     0.0        0        0 
+     0.2      0.2        0
+     0.4      0.4        0
+     0.6      0.6        0
+     0.8      0.8        0
+     1.0      1.0        0  /
+
+
+REGIONS
+
+SOLUTION
+
+RPTSOL
+'RESTART=2' /
+
+EQUIL
+ 2500 250 /
+
+SUMMARY
+
+SCHEDULE
+
+--RPTSCHED
+-- WELLS=1 /
+
+
+TUNEFSSA
+0  1 20 20 1* 1* 1* 1* /
+
+
+RPTRST
+ BASIC=3 FREQ=1 STREAM=300 TOF FLOWTOT /
+
+PNODE
+1*  300 1 80 1 1 80 80 /  300 bars at lower left cell
+
+PNODE
+1*  200 1 80 120  120   1 1 / 200 bars at upper right cell
+
+
+MAXSTEP
+54000 / 
+
+TSTEP
+ 54000 /
+
+END

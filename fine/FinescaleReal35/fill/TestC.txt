@@ -1,0 +1,52 @@
+-- Input file for constructing an irregular corner point grid with FILL
+
+-- Grid dimension
+SPECGRID
+ 80 240 80 1 F /
+
+-- Simple grid, all grid cells with the same i-index have the same DX
+DXV A
+'=' 1 80 1 1 /
+80*35.5 /
+
+DYV A
+'=' 1 240 1 1 /
+240*35.5 /
+
+-- Interpolate (fill) missing values
+FILL
+
+-- Define node depths at top of reservoir
+-- operator -- value -- in1 in2 jn1 jn2 k1 k2
+TOPSNODE S
+     '=' 2400    1  1   1   1   1 1  /
+     '=' 2400    1  1   241 241 1 1  /
+     '=' 2400    81 81  1   1   1 1  /
+     '=' 2400    81 81  241 241 1 1  /
+/
+
+FILL
+
+DZ A
+'=' 1 80 1 240 1 80 /
+1536000*1/
+
+FILL
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
